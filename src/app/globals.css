@@ -1,0 +1,359 @@
+.container {
+  padding: 20px;
+  
+}
+body {
+  margin: 0; /* Đảm bảo không có margin mặc định */
+  padding: 0; /* Đảm bảo không có padding mặc định */
+  min-height: 100vh; /* Đảm bảo body chiếm ít nhất 100% chiều cao viewport */
+  display: flex;
+  flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
+  width: 100%; /* Đảm bảo body chiếm toàn bộ chiều rộng */
+  overflow-x: hidden; /* Ẩn cuộn ngang */
+}
+
+/* From Uiverse.io by satyamchaudharydev */ 
+/* === removing default logo style ===*/
+.logo {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* logo styling */
+.logo {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #37FF8B;
+  --fs-size: 1.3em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on logo */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.logo:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+.xoay img{
+  animation: rotateImage 5s linear infinite;
+}
+.xoay {
+  display: flex; /* Thay đổi từ inline-block sang flex */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  position: relative; /* Để có thể đặt hiệu ứng +1 */
+}
+.counter {
+  position: absolute; /* Đổi từ relative sang absolute để có thể di chuyển */
+  font-size: 2em; /* Kích thước chữ */
+  color: #000000; /* Màu sắc chữ */
+  opacity: 0; /* Bắt đầu với độ mờ 0 */
+  transition: opacity 0.5s, transform 0.5s; /* Hiệu ứng chuyển tiếp */
+  transform: translateY(0); /* Thêm để khởi tạo vị trí */
+  animation: none; /* Thêm để khởi tạo animation */
+}
+
+/* Hiệu ứng hiển thị +1 khi bấm */
+.xoay.clicked .counter {
+  opacity: 1; /* Hiển thị chữ +1 */
+  transform: translateY(-100px); /* Di chuyển lên 30px */
+  animation: fadeOut 1s forwards; /* Thêm animation fadeOut */
+}
+
+/* Thêm animation fadeOut */
+@keyframes fadeOut {
+  0% {
+    opacity: 1; /* Bắt đầu với độ mờ 1 */
+  }
+  100% {
+    opacity: 0; /* Kết thúc với độ mờ 0 */
+  }
+}
+
+@keyframes rotateImage {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bg {
+  background: linear-gradient(to bottom, #05382d, #0c8168); /* Đổi từ trái sang phải thành từ trên xuống dưới */
+ width:auto;
+ min-height: 100vh; /* Đảm bảo nền tối thiểu chiếm toàn bộ chiều cao màn hình */
+ align-items: center; /* Canh giữa nội dung theo chiều dọc */
+ justify-content: center; /* Canh giữa nội dung theo chiều ngang */
+}
+/* From Uiverse.io by niat786 */ 
+.name {
+  border-radius: 10px;
+  background: rgba(77, 77, 77, 0.5); /* Đặt độ trong suốt */
+  color: rgb(42, 221, 197);
+  border: 2px solid #058f83; /* Thêm khung trắng */
+  padding: 10px; /* Thêm khoảng cách bên trong để nội dung không chạm vào khung */
+  box-shadow: 0 0 15px rgb(92, 205, 233); /* Thêm hiệu ứng đổ bóng sáng */
+}
+.background1 {
+  background-image: url('/images/background1.png');
+  background-size: cover; /* để hình nền phủ kín phần nền */
+  animation: backgroundScroll 20s linear infinite; /* chuyển động hình nền, thời gian 50 giây */
+  width:auto;
+ min-height: 100vh; /* Đảm bảo nền tối thiểu chiếm toàn bộ chiều cao màn hình */
+ align-items: center; /* Canh giữa nội dung theo chiều dọc */
+ justify-content: center; /* Canh giữa nội dung theo chiều ngang */
+
+}
+.background2 {
+  background-image: url('/images/pattern.svg');
+  background-size: cover; /* để hình nền phủ kín phần nền */
+  animation: backgroundScroll 20s linear infinite; /* chuyển động hình nền, thời gian 50 giây */
+  width:auto;
+ min-height: 100vh; /* Đảm bảo nền tối thiểu chiếm toàn bộ chiều cao màn hình */
+ align-items: center; /* Canh giữa nội dung theo chiều dọc */
+ justify-content: center; /* Canh giữa nội dung theo chiều ngang */
+}
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.color{
+  color: rgb(42, 221, 197) ;
+}
+
+h1 {
+  margin-bottom: 20px; /* Thêm khoảng cách dưới tiêu đề */
+}
+
+.table {
+  border-radius: 10px; /* Bo góc cho bảng */
+  overflow: hidden; /* Ẩn các phần thừa ra ngoài */
+  background-color: rgba(255, 255, 255, 0.8); /* Đặt màu nền với độ trong suốt */
+ 
+}
+/* Đặt nền toàn màn hình */
+.bg1 {
+  background: linear-gradient(to bottom, #328181, #070a0a);
+  min-height: 100vh; /* Đảm bảo nền tối thiểu chiếm toàn bộ chiều cao màn hình */
+  align-items: center; /* Canh giữa nội dung theo chiều dọc */
+  justify-content: center; /* Canh giữa nội dung theo chiều ngang */
+}
+
+/* Nội dung có thể tùy chỉnh nếu cần */
+.content {
+  text-align: center;
+  color: #fff; /* Màu chữ */
+}
+
+.rank {
+  background: linear-gradient(to right, #4172db, #0a0d1b); /* Đổi từ trái sang phải thành từ trên xuống dưới */
+  
+}
+.footer {
+  position: fixed; /* Cố định footer */
+  bottom: 0; /* Đặt footer ở dưới cùng */
+  left: 0; /* Đảm bảo footer bắt đầu từ bên trái */
+  z-index: 1000; /* Đảm bảo footer hiển thị trên các phần tử khác */
+  width: 100%; /* Đảm bảo footer chiếm toàn bộ chiều rộng */
+  
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Đảm bảo header hiển thị trên các phần còn lại của trang */
+
+}
+.magin-body{
+  margin-top: 71px;
+}
+/* From Uiverse.io by nazeer004 */ 
+.loader {
+  position: relative;
+}
+
+.loader span {
+  position: absolute;
+  color: #fff;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+  letter-spacing: 5px;
+}
+
+.loader span:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 0.3px rgb(51, 235, 225);
+}
+
+.loader span:nth-child(2) {
+  color: rgb(34, 216, 240);
+  -webkit-text-stroke: 1px rgb(94, 84, 233);
+  animation: uiverse723 3s ease-in-out infinite;
+}
+
+@keyframes uiverse723 {
+  0%, 100% {
+    clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 
+     54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 
+     51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+  }
+}
+.size{
+  font-size: 75%;
+}
+.size-nc{
+  font-size: 70%;
+}
+.jump {
+  animation: jump 0.5s ease;
+}
+
+@keyframes jump {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-30px); /* Nhảy lên 30px */
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* From Uiverse.io by satyamchaudharydev */ 
+.invite{
+  font-size: 100px;
+  color: #41c4c4;
+
+}
+/* CSS để điều chỉnh thanh cuộn */
+::-webkit-scrollbar {
+  width: 5px; /* Chiều rộng của thanh cuộn dọc */
+  height: 8px; /* Chiều cao của thanh cuộn ngang */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Màu của thanh cuộn */
+  border-radius: 10px; /* Bo tròn các góc của thanh cuộn */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Màu của thanh cuộn khi hover */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Màu nền của thanh cuộn */
+  border-radius: 10px; /* Bo tròn các góc của track */
+}
+/* styles/globals.css hoặc styles.css */
+@media (min-width: 768px) {
+  /* Ẩn tất cả các phần tử trên màn hình lớn hơn 768px */
+  .mobile-only {
+      display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Hiển thị các phần tử chỉ trên màn hình nhỏ hơn 768px */
+  .desktop-only {
+      display: none;
+  }
+}
+.cursor{
+  cursor: pointer;
+}
+.hover:hover{
+  background-color: #000000;
+  font-size: 14px;
+
+}
+/* From Uiverse.io by mahiatlinux */ 
+/* From Uiverse.io by adamgiebl */ 
+.buttonz {
+  font-size: 12px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  will-change: box-shadow,transform;
+  background: radial-gradient( 100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100% );
+  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.buttonz:hover {
+  box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+  transform: translateY(-0.1em);
+}
+
+.buttonz:active {
+  box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+  transform: translateY(0em);
+}
+.colors{
+  color: #00ffff;
+}
+.buttonc {
+  color: #000000;
+  font-size: 17px;
+  background: linear-gradient(to right, #B9FBC0, #01ad66);
+  border: 1px solid #02632e;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  box-shadow: 0px 6px 0px #02632e;
+  transition: all 0.1s;
+  width: 100%;
+}
+
+.buttonc:active {
+  box-shadow: 0px 2px 0px #b67701;
+  position: relative;
+  top: 2px;
+}
