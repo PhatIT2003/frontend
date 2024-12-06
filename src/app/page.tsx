@@ -1,10 +1,10 @@
 "use client";
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import Image from 'next/image';
 import { ApiTelegram } from "@/Database/ApiTelegram";
 import { ApiTelegramClaim } from "@/Database/ApiTelegram";
 import { Time, UserInfo } from './type/interface';
-
+import Load from  '@/components/loading/load'
 export default function Home() {
     const [database, setDatabase] = useState<UserInfo | null>(null);
 
@@ -125,6 +125,7 @@ export default function Home() {
             <div className="background1">
             <div className="background2">
                 <div className="row ">
+                <Suspense fallback={<><Load /><Load /></>}>
                     {database && (
                         <div className="col-6 mt-2 ">
                             <b className="name p-2">
@@ -133,11 +134,14 @@ export default function Home() {
                             </b>
                         </div>
                     )}
+                    </Suspense>
+                    <Suspense fallback={<><Load /><Load /></>}>
                     {database && (
                         <div className="col-6 text-end mt-2">
                            <b className="name p-2"><Image src="/images/TBC.png" alt="Token Image" width={20} height={20} />&nbsp; {database.token.toFixed(2) || 0} TBC</b>
                         </div>
                     )}
+                    </Suspense>
                 </div>
 
                 <div className='xoay  mt-5 mb-3' >
@@ -150,6 +154,7 @@ export default function Home() {
                         <span className="color p-2"><Image src="/images/TBC.png" alt="Token Image" width={20} height={20} /> $TBC </span>
                     </div>
                 )}
+                 <Suspense fallback={<><Load /><Load /></>}>
                 <div className='text-center p-3 mt-3'>
                     {remainingTime ? (
                         <div className="countdown-container">
@@ -170,6 +175,7 @@ export default function Home() {
                         </button>
                     )}
                 </div>
+                </Suspense>
             </div>
             </div>
         </div>
