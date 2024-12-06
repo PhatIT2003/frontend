@@ -1,1 +1,1 @@
-export const manifestUrl = 'https://scarlet-labour-haddock-368.mypinata.cloud/ipfs/QmZLa98vjp96yjK9hLKbYjbx9xnPpQfp7DspFm7pbkcgJC';
+export const manifestUrl = 'https://scarlet-labour-haddock-368.mypinata.cloud/ipfs/QmbthxLkNf3Am1PCnR185iCpgZCgQe1ukG4QpFLN2x7Dfk';
