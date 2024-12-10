@@ -1,6 +1,6 @@
 
 import { Suspense} from 'react'
-import Load from  '@/components/loading/load'
+import { Load } from  '@/components/loading/load'
 import TaskGet from '@/components/task/task.get'
 import Image from 'next/image'
 

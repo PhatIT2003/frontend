@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from 'next/image';
 import {fetchTaskTelegrams, fetchTaskTelegramsCompleted, fetchTaskTelegramsCompletedByUser} from "@/Database/getAPI";
 import { ITask } from '@/app/type/interface';
-import Load from "../loading/load";
+import { Load } from "../loading/load";
 
 const TaskGet = () => {
     const [error, setError] = useState<string | null>(null);

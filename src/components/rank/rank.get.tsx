@@ -6,7 +6,7 @@ import { fetchRankTelegrams } from "@/Database/getAPI";
 import { ApiTelegram } from "@/Database/ApiTelegram";
 import { UserInfo } from "@/app/type/interface";
 import clsx from "clsx";
-import Load from "../loading/load";
+import { Load } from "../loading/load";
 
 const RankGet = () => {
     const [rankedUsers, setRankedUsers] = useState<UserInfo[]>([]);

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { ApiTelegram } from '@/Database/ApiTelegram'     // Import hook để lấy thông tin người dùng
 import { toast } from 'react-toastify';
 import { UserInfo } from '@/app/type/interface';
-import Load from '../loading/load';
+import { Load } from '../loading/load';
 
 const InviteLink = () => {
     const [referralLink, setReferralLink] = useState('');
@@ -25,7 +25,7 @@ const InviteLink = () => {
     
     if (!database) {
         return <div className="text-center">
-          <b> Bạn cần đăng nhập để có liên kết giới thiệu.</b>
+          <p className="text-white"> Bạn cần đăng nhập để có liên kết giới thiệu.</p>
             <div><Load/></div>
         </div>;
     }

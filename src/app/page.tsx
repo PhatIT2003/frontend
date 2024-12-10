@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { ApiTelegram } from "@/Database/ApiTelegram";
 import { ApiTelegramClaim } from "@/Database/ApiTelegram";
 import { Time, UserInfo } from './type/interface';
-import Load from  '@/components/loading/load'
+import { Load } from  '@/components/loading/load'
 export default function Home() {
     const [database, setDatabase] = useState<UserInfo | null>(null);
 
@@ -120,6 +120,34 @@ export default function Home() {
         return 100 - ((remainingTime.totalSeconds / remainingTime.totalDurationSeconds) * 100);
     };
 
+    
+    if (!database) {
+        return (
+            <div className="LoadingBg">
+                <div className="loaders p-5 ">
+                    <div className="loading-text">
+                        Loading
+                    </div>
+                    <div className="loading-bar-background">
+                        <div className="loading-bar">
+                            <div className="white-bars-container">
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                                <div className="white-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
     return (
         <div className="container bg">
             <div className="background1">
@@ -130,7 +158,7 @@ export default function Home() {
                         <div className="col-6 mt-2 ">
                             <b className="name p-2">
                             <Image src={database.photoUrl} alt="avatar Image" width={25} height={25} className="rounded-circle" />
-                                &nbsp;{database.first_name} {database.last_name}
+                                &nbsp;{database.first_name } {database.last_name}
                             </b>
                         </div>
                     )}

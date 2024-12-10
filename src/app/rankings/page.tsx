@@ -1,6 +1,6 @@
 import Tab from "@/components/rankings/tab";
 import { Suspense } from 'react';
-import Load from '@/components/loading/load';
+import { Load } from '@/components/loading/load';
 
 const Rankings = () => {
     return (

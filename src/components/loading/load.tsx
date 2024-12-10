@@ -1,5 +1,5 @@
 
-const Load =()=>{
+export  const Load =()=>{
     return(
         <div >
         <p className="placeholder-glow">
@@ -18,4 +18,4 @@ const Load =()=>{
         </div>
     )
 }
-export default Load;
+

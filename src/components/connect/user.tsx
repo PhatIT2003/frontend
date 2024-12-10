@@ -17,7 +17,7 @@ const User =() =>{
     }, []);
 
     if (!database) {
-        return <div>Loading...</div>;
+        return <div className="placeholder-glow text-center"><span className="placeholder w-75"></span></div>;
     }
 
     return(

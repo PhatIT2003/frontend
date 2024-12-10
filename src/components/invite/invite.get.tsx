@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { fetchInviteTelegrams } from '@/Database/getAPI'; // Giả sử bạn đã có hàm này
 import { UserInfo } from '@/app/type/interface';
 import React from 'react';
-import Load from '../loading/load';
+import { Load } from '../loading/load';
 
 const InviteGet = () => {
     // State để lưu trữ danh sách thành viên đã mời

@@ -3,7 +3,7 @@ import Wallet from "@/components/connect/wallet/wallet";
 import User from '@/components/connect/user';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { manifestUrl } from '@/components/connect/wallet/tonconnect-config';
-import Load from '@/components/loading/load';
+import { Load } from '@/components/loading/load';
 import { Suspense } from 'react';
 
 const Connect = () => {
