@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from 'next/image';
 import {fetchTaskTelegrams, fetchTaskTelegramsCompleted, fetchTaskTelegramsCompletedByUser} from "@/Database/getAPI";
 import { ITask } from '@/app/type/interface';
+import Load from "../loading/load";
 
 const TaskGet = () => {
     const [error, setError] = useState<string | null>(null);
@@ -66,6 +67,7 @@ const TaskGet = () => {
         <div className="container ">
             {error && <div className="text-danger">{error}</div>}
             <h5 className="text-white">Danh sách nhiệm vụ chưa hoàn thành</h5>
+        
 
                     {taskTelegrams.length > 0 ? (
                         taskTelegrams
@@ -99,7 +101,10 @@ const TaskGet = () => {
                                 </div>
                             ))
                     ) : (
+                        <div className="row">
                         <div className="text-center">Không có nhiệm vụ nào chưa hoàn thành.</div>
+                        <div className="text-center"><Load/></div>
+                        </div>
                     )}
 
             
@@ -116,7 +121,10 @@ const TaskGet = () => {
                     </div>
                 ))
             ) : (
+                <div className="row">
                 <div className="text-center">Không có nhiệm vụ nào đã hoàn thành.</div>
+                <div className="text-center"><Load/></div>
+                </div>
             )}
         </div>
     );

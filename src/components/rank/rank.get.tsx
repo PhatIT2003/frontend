@@ -6,6 +6,7 @@ import { fetchRankTelegrams } from "@/Database/getAPI";
 import { ApiTelegram } from "@/Database/ApiTelegram";
 import { UserInfo } from "@/app/type/interface";
 import clsx from "clsx";
+import Load from "../loading/load";
 
 const RankGet = () => {
     const [rankedUsers, setRankedUsers] = useState<UserInfo[]>([]);
@@ -106,7 +107,7 @@ const RankGet = () => {
                     ))
                 ) : (
                     <div className="row mt-2 text-white">
-                        <div className="col-12">No ranked users available.</div>
+                        <div className="col-12"><Load/></div>
                     </div>
                 )}
             </>

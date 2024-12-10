@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { fetchInviteTelegrams } from '@/Database/getAPI'; // Giả sử bạn đã có hàm này
 import { UserInfo } from '@/app/type/interface';
 import React from 'react';
+import Load from '../loading/load';
 
 const InviteGet = () => {
     // State để lưu trữ danh sách thành viên đã mời
@@ -46,7 +47,10 @@ const InviteGet = () => {
                     </div>
                 ))
             ) : (
+                <div className="row">
                 <div className="text-center text-white">Không có thành viên nào được mời.</div>
+                <div className="text-center"><Load/></div>
+                </div>
             )}
         </div>
     );
