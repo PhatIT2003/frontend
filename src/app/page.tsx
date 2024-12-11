@@ -13,6 +13,13 @@ export default function Home() {
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+    const [tokens, setTokens] = useState<string | null>(null);
+
+    useEffect(() => {
+        const storedToken = sessionStorage.getItem('token');
+        setTokens(storedToken); // Lưu token vào state
+    }, []);
+
     // Check if claiming is allowed based on last claim time
     const checkClaimEligibility = (db: UserInfo) => {
         // Allow claim if lastClaim is null, "null", or undefined
@@ -119,8 +126,8 @@ export default function Home() {
         if (!remainingTime) return 0;
         return 100 - ((remainingTime.totalSeconds / remainingTime.totalDurationSeconds) * 100);
     };
-    const tokens= sessionStorage.getItem('token')
-    
+
+    // Kiểm tra xem tokens có giá trị hợp lệ không
     if (!tokens) {
         return (
             <div className="LoadingBg">
