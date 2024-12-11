@@ -16,7 +16,7 @@ export default function Home() {
     const [tokens, setTokens] = useState<string | null>(null);
 
     useEffect(() => {
-        const storedToken = sessionStorage.getItem('token');
+        const storedToken = sessionStorage.getItem('sessionToken');
         setTokens(storedToken); // Lưu token vào state
     }, []);
 
