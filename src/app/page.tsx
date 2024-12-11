@@ -119,9 +119,9 @@ export default function Home() {
         if (!remainingTime) return 0;
         return 100 - ((remainingTime.totalSeconds / remainingTime.totalDurationSeconds) * 100);
     };
-
+    const tokens= sessionStorage.getItem('token')
     
-    if (!database) {
+    if (!tokens) {
         return (
             <div className="LoadingBg">
                 <div className="loaders p-5 ">

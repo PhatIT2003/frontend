@@ -67,8 +67,6 @@ const TaskGet = () => {
         <div className="container ">
             {error && <div className="text-danger">{error}</div>}
             <h5 className="text-white">Danh sách nhiệm vụ chưa hoàn thành</h5>
-        
-
                     {taskTelegrams.length > 0 ? (
                         taskTelegrams
                             .filter(task => !completedTaskIds.has(task.id))
