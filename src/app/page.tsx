@@ -121,52 +121,68 @@ export default function Home() {
     };
 
     
-    if (!database) {
-        return (
-            <div className="LoadingBg">
-                <div className="loaders p-5 ">
-                    <div className="loading-text">
-                        Loading
-                    </div>
-                    <div className="loading-bar-background">
-                        <div className="loading-bar">
-                            <div className="white-bars-container">
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                                <div className="white-bar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    // if (!database) {
+    //     return (
+    //         <div className="LoadingBg">
+    //             <div className="loaders p-5 ">
+    //                 <div className="loading-text">
+    //                     Loading
+    //                 </div>
+    //                 <div className="loading-bar-background">
+    //                     <div className="loading-bar">
+    //                         <div className="white-bars-container">
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                             <div className="white-bar"></div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     );
+    // }
     return (
         <div className="container bg">
             <div className="background1">
             <div className="background2">
                 <div className="row ">
-                <Suspense fallback={<><Load /><Load /></>}>
-                    {database && (
-                        <div className="col-6 mt-2 ">
+                <Suspense fallback={<Load />}>
+                    {database ? (
+                        <div className="col-6 mt-3 ">
                             <b className="name p-2">
-                            <Image src={database.photoUrl} alt="avatar Image" width={25} height={25} className="rounded-circle" />
-                                &nbsp;{database.first_name } {database.last_name}
+                                <Image 
+                                    src={database.photoUrl} 
+                                    alt="avatar Image" 
+                                    width={25} 
+                                    height={25} 
+                                    className="rounded-circle" 
+                                />
+                                &nbsp;{database.first_name} {database.last_name}
                             </b>
                         </div>
+                    ) : (
+                        <div className="col-6 mt-3 placeholder-glow">
+                               <span className="placeholder col-7"></span>
+                               <span className="placeholder col-7"></span>
+                        </div>
                     )}
-                    </Suspense>
+                </Suspense>
                     <Suspense fallback={<><Load /><Load /></>}>
-                    {database && (
-                        <div className="col-6 text-end mt-2">
+                    {database ? (
+                        <div className="col-6 text-end mt-3">
                            <b className="name p-2"><Image src="/images/TBC.png" alt="Token Image" width={20} height={20} />&nbsp; {database.token.toFixed(2) || 0} TBC</b>
+                        </div>
+                    ) : (
+                        <div className="col-6 text-end mt-3 placeholder-glow">
+                               <span className="placeholder col-7"></span>
+                               <span className="placeholder col-7"></span>
                         </div>
                     )}
                     </Suspense>
@@ -184,23 +200,29 @@ export default function Home() {
                 )}
                  <Suspense fallback={<><Load /><Load /></>}>
                 <div className='text-center p-3 mt-3'>
-                    {remainingTime ? (
-                        <div className="countdown-container">
-                            <div className="progress d-flex " style={{height: '40px', backgroundColor: '#ffffff',opacity: 0.7, borderRadius: '10px', boxShadow: '2px 8px 5px #000000'}}>
-                                <div 
-                                    className="progress-bar" role="progressbar" 
-                                    style={{ width: `${getProgressPercentage()}%`, backgroundColor: '#28ecab'}}
-                                ></div>
-                                <div className="countdown-text mt-2">
-                               {remainingTime.hours}h {remainingTime.minutes}m {remainingTime.seconds}s
+                    {database ? (
+                        remainingTime ? (
+                            <div className="countdown-container">
+                                <div className="progress d-flex " style={{height: '40px', backgroundColor: '#ffffff',opacity: 0.7, borderRadius: '10px', boxShadow: '2px 8px 5px #000000'}}>
+                                    <div 
+                                        className="progress-bar" role="progressbar" 
+                                        style={{ width: `${getProgressPercentage()}%`, backgroundColor: '#28ecab'}}
+                                    ></div>
+                                    <div className="countdown-text mt-2">
+                                        {remainingTime.hours}h {remainingTime.minutes}m {remainingTime.seconds}s
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                            
-                        </div>
+                        ) : (
+                            <button className='buttonc' onClick={handleClaim} disabled={!canClaim}>
+                                <b>Claim Rewards</b>
+                            </button>
+                        )
                     ) : (
-                        <button className='buttonc' onClick={handleClaim} disabled={!canClaim}>
-                            <b>Claim Rewards</b>
-                        </button>
+                        <div className="placeholder-glow">
+                            <span className="placeholder col-12"></span>
+                            <span className="placeholder col-12"></span>
+                        </div>
                     )}
                 </div>
                 </Suspense>
