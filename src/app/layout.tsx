@@ -40,11 +40,8 @@ export default function RootLayout({
     pauseOnFocusLoss
     draggable
     pauseOnHover
-    theme="light"
-
- />  
+    theme="light"/>  
         </div>
-
       </body>
     </html>
   );

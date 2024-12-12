@@ -18,4 +18,30 @@ export  const Load =()=>{
         </div>
     )
 }
-
+export const Poster =()=>{
+    return (
+        <div className="LoadingBg">
+            <div className="loaders p-5 ">
+                <div className="loading-text">
+                    Loading
+                </div>
+                <div className="loading-bar-background">
+                    <div className="loading-bar">
+                        <div className="white-bars-container">
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                            <div className="white-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}

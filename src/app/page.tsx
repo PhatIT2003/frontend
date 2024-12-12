@@ -120,34 +120,7 @@ export default function Home() {
         return 100 - ((remainingTime.totalSeconds / remainingTime.totalDurationSeconds) * 100);
     };
 
-    
-    // if (!database) {
-    //     return (
-    //         <div className="LoadingBg">
-    //             <div className="loaders p-5 ">
-    //                 <div className="loading-text">
-    //                     Loading
-    //                 </div>
-    //                 <div className="loading-bar-background">
-    //                     <div className="loading-bar">
-    //                         <div className="white-bars-container">
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                             <div className="white-bar"></div>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     );
-    // }
+   
     return (
         <div className="container bg">
             <div className="background1">
@@ -191,11 +164,15 @@ export default function Home() {
                 <div className='xoay  mt-5 mb-3' >
                     <Image src='/images/hieuung.svg' width={230} height={230} alt='click' />
                 </div>
-                {database && (
+                {database ? (
                     <div className="text-center ">
                         <b className="colors fs-1">{database.token.toFixed(2) || 0} </b>
                         <br />
                         <span className="color p-2"><Image src="/images/TBC.png" alt="Token Image" width={20} height={20} /> $TBC </span>
+                    </div>
+                ):(
+                    <div className="text-center placeholder-glow ">
+                        <span className="placeholder col-6"></span>
                     </div>
                 )}
                  <Suspense fallback={<><Load /><Load /></>}>

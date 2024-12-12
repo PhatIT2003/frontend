@@ -1,8 +1,8 @@
 
 import { Suspense} from 'react'
 import { Load } from  '@/components/loading/load'
-import TaskGet from '@/components/task/task.get'
 import Image from 'next/image'
+import TaskTab from '@/components/task/task.tab';
 
 const Task = () => {
     return (
@@ -16,7 +16,7 @@ const Task = () => {
             </div>
            
             <Suspense fallback={<><Load /><Load /></>}>
-           <TaskGet/>
+            <TaskTab/>
            </Suspense>
         </div>
     );
