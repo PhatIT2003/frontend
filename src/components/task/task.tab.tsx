@@ -2,7 +2,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
-import Image from 'next/image';
 import TaskGet from './task.get';
 
 const TaskTab = () => {
@@ -22,17 +21,10 @@ const TaskTab = () => {
             key: '2',
             label: (<b className='text-white'><i className="bi bi-person-fill-add "> </i>Daily</b>),
             children:  (
-                <div>
                  
                          <div>
                          <TaskGet/>
                     </div>
-                    <div className='mt-3'>
-                  
-                  
-
-                    </div>
-                </div>
             ),
         }
     ];
