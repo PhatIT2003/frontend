@@ -3,6 +3,7 @@ import React from 'react';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import TaskGet from './task.get';
+import TaskDailyGet from './taskDaily.get';
 
 const TaskTab = () => {
     const onChange = (key: string) => {
@@ -23,7 +24,7 @@ const TaskTab = () => {
             children:  (
                  
                          <div>
-                         <TaskGet/>
+                         <TaskDailyGet/>
                     </div>
             ),
         }
