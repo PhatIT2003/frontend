@@ -55,6 +55,43 @@ export const fetchTaskTelegramsCompletedByUser = async (Token: string ) => {
     // console.log(data)
     return data
 };
+export const fetchTaskDailyTelegrams = async (Token: string ) => {
+    const res = await fetch(`${BASE_URL}/telegram/auth/api/taskDaily`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${Token}`,
+            "Content-Type": "application/json",
+        },  
+    })
+    const data = await res.json()
+    // console.log(data)
+    return data
+};
+    
+export const fetchTaskDailyTelegramsCompleted = async (taskId: string, Token: string ) => {
+    const res = await fetch(`${BASE_URL}/telegram/auth/api/taskDaily/completeDaily/${taskId}`, {
+        method: "POST",
+        headers: {
+            'Authorization': `Bearer ${Token}`,
+            "Content-Type": "application/json",
+        },  
+    })
+    const data = await res.json()
+    // console.log(data)
+    return data
+};
+export const fetchTaskDailyTelegramsCompletedByUser = async (Token: string ) => {
+    const res = await fetch(`${BASE_URL}/telegram/auth/api/taskDaily/completedDaily-tasks`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${Token}`,
+            "Content-Type": "application/json",
+        },  
+    })
+    const data = await res.json()
+    // console.log(data)
+    return data
+};
 export const fetchInviteTelegrams = async (Token: string) => {
     const res = await fetch(`${BASE_URL}/telegram/auth/api/users/invite`, {
         method: "GET",
